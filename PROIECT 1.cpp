@@ -28,7 +28,6 @@ public:
 	friend Multime & operator-(Multime A, Multime B);
 };
 
-
 class Multime_perechi
 {
 public:
@@ -54,29 +53,19 @@ public:
 
 bool Multime::isPresent(Multime M, int data)
 {
-	//cout << "DATA =================== " << data << endl;
-	//cout << "IIIISPREZENT\n";
 	Multime test;
 	test.help = M.head;
 	while (test.help != NULL)
 	{
-		//cout << "a intrat in while\n";
 		if (test.help->data == data)
-		{
-			//cout << "returneaza 1 pt test.help->data = " << test.help->data << endl;
 			return 1;
-		}
-		//cout << "trec la urmatorul test.help\n";
 		test.help = test.help->next;
 	}
-	//cout << "returneaza 0 pt test.help->data\n";
 	return 0;
 }
 
 Multime & operator+(Multime A, Multime B)
 {
-	//cout << "S a apelat supraincarcarea operatorului +\n";
-
 	Multime rezultat, test;
 	test.help = A.head;
 	while (test.help != NULL)
@@ -85,22 +74,14 @@ Multime & operator+(Multime A, Multime B)
 		test.help = test.help->next;
 	}
 	test.help = B.head;
-	//cout << "------REZULTAT DUPA A ESTE ---------\n";
-	//cout << rezultat;
-	//cout << "------REZULTAT DUPA A ESTE ---------\n\n";
+
 	while (test.help != NULL)
 	{
 		if (rezultat.isPresent(rezultat, test.help->data) == 0)
-		{
-			//cout << "element diferit = " << test.help->data << endl;
 			rezultat.addNod(test.help->data);
-
-		}
 		test.help = test.help->next;
 	}
-	//cout << "------REZULTAT DUPA A SI B ESTE ---------\n\n";
 	cout << rezultat;
-	//cout << "head & last : " << rezultat.head->data << ' ' << rezultat.last->data << endl;
 	return rezultat;
 }
 
@@ -192,37 +173,6 @@ void Multime::addNod(int x)
 	last->next = NULL;
 }
 
-//void Multime::delNod(int x)
-//{
-//	nod *temp = head;
-//	nod *temp2 = head;
-//	if (head == NULL)
-//	{
-//		cout << "HEAD == NULL\n";
-//		return;
-//	}
-//	if (head->data == x)
-//	{
-//		head = head->next;
-//	}
-//	while (temp != NULL && temp->data != x)
-//	{
-//		temp2 = temp;
-//		temp = temp->next;
-//	}
-//	if (temp == NULL)
-//	{
-//		cout << "VALOAREA " << x << " NU S-A GASIT IN LISTA\n";
-//		delete temp;
-//		delete temp2;
-//	}
-//	else
-//	{
-//		temp2->next = temp->next;
-//		delete temp;
-//	}
-//}
-
 ostream & operator << (ostream &out, const Multime_perechi::Pereche_intregi &c)
 {
 	cout << "(" << c.a << "," << c.b << ")";
@@ -305,6 +255,7 @@ void Multime::transformare()
 {
 	nod *i = NULL, *j = NULL, *temp = NULL;
 	int OK = 0;
+
 	for (i = head; i->next != NULL; i = i->next)
 	{
 		for (j = i->next; j->next != NULL; j = j->next)
@@ -328,7 +279,6 @@ void Multime::transformare()
 
 	if (head != last)
 	{
-
 		nod *p = head;
 		while (p->next != last)
 			p = p->next;
@@ -351,14 +301,12 @@ Multime_perechi produs_cartezian(Multime A, Multime B)
 	q = B.head;
 
 	for (p = A.head; p != NULL; p = p->next)
-	{
 		for (q = B.head; q != NULL; q = q->next)
-		{
 			produsAxB.addPereche(p->data, q->data);
-		}
-	}
+
 	return produsAxB;
 }
+
 int main()
 {
 	Multime lista1;
@@ -370,15 +318,13 @@ int main()
 	cin >> lista2;
 	lista2.transformare();
 	cout << lista2;
-	cout << endl << "--------------------------------------------------\n\n";
 	Multime lista3 = lista1 * lista2;
-	cout << lista3;
+	//cout << lista3;
 
 	Multime_perechi Lista;
 	Multime_perechi::Pereche_intregi pereche;
 	cin >> Lista;
 	cout << Lista;
-	cout << " ============================================\n\n\n";
 
 	Multime_perechi produs1;
 
