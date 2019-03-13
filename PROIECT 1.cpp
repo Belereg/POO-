@@ -1,25 +1,30 @@
 #include "libraries.h"
 
+class nod
+{
+	int data;
+	nod *next;
+public:
+	friend class Multime & operator*(Multime A, Multime B);
+	friend class Multime & operator+(Multime A, Multime B);
+	friend ostream & operator << (ostream &out, const Multime &c);
+	friend class Multime & operator*(Multime A, Multime B);
+	friend class Multime;
+	friend class Multime & operator-(Multime A, Multime B);
+	friend class Multime_perechi produs_cartezian(Multime A, Multime B);
+};
+
 class Multime
 {
-public:
-	class nod
-	{
-
-	public:
-		int data;
-		nod *next;
-	};
 	nod *head;
 	nod *last;
 	nod *help;
-
 public:
-	int size;
+	friend class nod;
+	friend class Multime_perechi produs_cartezian(Multime A, Multime B);
 	Multime();
 	void transformare();
 	void addNod(int x);
-	//void delNod(int x);
 	bool isPresent(Multime head, int data);
 	friend ostream & operator << (ostream &out, const Multime &c);
 	friend istream & operator >> (istream &in, Multime &c);
@@ -28,19 +33,28 @@ public:
 	friend Multime & operator-(Multime A, Multime B);
 };
 
+class Pereche_intregi
+{
+private:
+	int a, b;
+	Pereche_intregi *next;
+public:
+
+	friend class Multime_perechi;
+	int get_a();
+	int get_b();
+	Pereche_intregi *get_next();
+	void set_a(int a);
+	void set_b(int b);
+	void set_next(Pereche_intregi *next);
+	friend ostream & operator << (ostream &out, const Pereche_intregi &c);
+	friend istream & operator >> (istream &in, Pereche_intregi &c);
+};
+
 class Multime_perechi
 {
 public:
-	class Pereche_intregi
-	{
-	public:
-		friend class multime_perechi;
-		int a, b;
-		Pereche_intregi *next;
-		friend ostream & operator << (ostream &out, const Pereche_intregi &c);
-		friend istream & operator >> (istream &in, Pereche_intregi &c);
-	};
-
+	
 	Pereche_intregi *head = NULL;
 	Pereche_intregi *last = NULL;
 	Pereche_intregi *help = NULL;
@@ -50,7 +64,33 @@ public:
 	void addPereche(int a, int b);
 	Multime_perechi();
 };
+void Pereche_intregi::set_next(Pereche_intregi *next)
+{
+	this->next = next;
+}
+Pereche_intregi* Pereche_intregi::get_next()
+{
+	return next;
+}
+void Pereche_intregi::set_a(int a)
+{
+	this->a = a;
+}
 
+void Pereche_intregi::set_b(int b)
+{
+	this->b = b;
+}
+
+int	Pereche_intregi::get_a()
+{
+	return a;
+}
+
+int	Pereche_intregi::get_b()
+{
+	return b;
+}
 bool Multime::isPresent(Multime M, int data)
 {
 	Multime test;
@@ -67,6 +107,7 @@ bool Multime::isPresent(Multime M, int data)
 Multime & operator+(Multime A, Multime B)
 {
 	Multime rezultat, test;
+	
 	test.help = A.head;
 	while (test.help != NULL)
 	{
@@ -173,14 +214,14 @@ void Multime::addNod(int x)
 	last->next = NULL;
 }
 
-ostream & operator << (ostream &out, const Multime_perechi::Pereche_intregi &c)
+ostream & operator << (ostream &out, const Pereche_intregi &c)
 {
 	cout << "(" << c.a << "," << c.b << ")";
 	out << endl;
 	return out;
 }
 
-istream & operator >> (istream &in, Multime_perechi::Pereche_intregi &c)
+istream & operator >> (istream &in, Pereche_intregi &c)
 {
 	cout << "Perechea de intregi : ";
 	in >> c.a;
@@ -197,14 +238,14 @@ ostream & operator << (ostream &out, const Multime_perechi &c)
 	}
 
 	out << "LISTA : ";
-	Multime_perechi::Pereche_intregi *test;
+	Pereche_intregi *test;
 	test = c.head;
 	while (test != NULL)
 	{
 		if (test == NULL)
 			break;
-		out << "(" << test->a << "," << test->b << ") ---> ";
-		test = test->next;
+		out << "(" << test->get_a() << "," << test->get_b() << ") ---> ";
+		test = test->get_next();
 	}
 	out << endl;
 	return out;
@@ -212,7 +253,7 @@ ostream & operator << (ostream &out, const Multime_perechi &c)
 
 istream & operator >> (istream &in, Multime_perechi &c)
 {
-	Multime_perechi::Pereche_intregi pereche;
+	Pereche_intregi pereche;
 	int n, x;
 	cout << "Cate perechi ?\n";
 	in >> n;
@@ -220,7 +261,7 @@ istream & operator >> (istream &in, Multime_perechi &c)
 	{
 		in >> pereche;
 		cout << endl;
-		c.addPereche(pereche.a, pereche.b);
+		c.addPereche(pereche.get_a(), pereche.get_b());
 	}
 	return in;
 }
@@ -236,7 +277,7 @@ void Multime_perechi::addPereche(int x, int y)
 {
 	Pereche_intregi *p = new Pereche_intregi;
 	p->next = NULL;
-	p->a = x;
+	p->set_a(x);
 	p->b = y;
 	if (head == NULL)
 	{
@@ -296,7 +337,7 @@ Multime_perechi produs_cartezian(Multime A, Multime B)
 {
 	Multime_perechi produsAxB;
 
-	Multime::nod *p, *q;
+	nod *p, *q;
 	p = A.head;
 	q = B.head;
 
@@ -322,7 +363,7 @@ int main()
 	//cout << lista3;
 
 	Multime_perechi Lista;
-	Multime_perechi::Pereche_intregi pereche;
+	Pereche_intregi pereche;
 	cin >> Lista;
 	cout << Lista;
 
