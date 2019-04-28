@@ -1,2 +1,2 @@
-# POO-
+# POO
 Object oriented programming projects
