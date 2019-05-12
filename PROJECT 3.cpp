@@ -4,10 +4,11 @@
 class Masina
 {
 protected:
+
 	static int foreign_nationality;
 	static int foreign_nationality_monovolume;
 	float lenght;
-	int OK;
+
 public:
 
 	Masina();
@@ -466,69 +467,6 @@ int Masina::foreign_nationality_monovolume = 0;
 
 int main()
 {
-
-	//Sale<Masina> P;
-	//bool reading = 1;
-	//while (reading)
-	//{
-	//	cout << "choose an option: \n1)add a mini car\n2)add a mica car\n3)add a compacta car \n4)add a monovolume car \n5)display the cars in the car park\n";
-	//	int choice;
-	//	cin >> choice;
-	//	if (choice == 1)
-	//	{
-	//		MINI a;
-	//		cin >> a;
-	//		P.add(a);
-	//	}
-	//	if (choice == 2)
-	//	{
-	//		MICA b;
-	//		cin >> b;
-	//		P.add(b);
-	//		break;
-	//	}
-	//	if (choice == 3)
-	//	{
-	//		COMPACTA c;
-	//		cin >> c;
-	//		P.add(c);
-	//	}
-	//	if (choice == 4)
-	//	{
-	//		MONOVOLUME d;
-	//		cin >> d;
-	//		P.add(d);
-	//	}
-	//	if (choice == 5)
-	//	{
-	//		P.display();
-	//		reading = 0;
-	//	}
-	//}
-	//P.display();
-	//*MONOVOLUME D;
-	//cin >> D;
-	//Sale<Masina> P;
-	//P.add(D);
-	//cout << "Choose an option: \n1)Add a MINI car\n2)Add a MICA car\n3)Add a COMPACTA car \n4)Add a MONOVOLUME car \n5)Display the cars in the car park\n";
-	//int choice;
-	//cin >> choice;
-	//switch (choice)
-	//{
-	//case 1:
-	//{
-	//	MINI A;
-	//	cin >> A;
-	//	P.add(A);
-	//	break;
-	//}
-	//case 5:
-	//	P.display();
-	//	break;
-	//}
-	//P.display();
-	//*/
-
 	MINI A;
 	cin >> A;
 	MICA B;
