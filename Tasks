@@ -1,0 +1,59 @@
+-RO-
+
+
+/// PROJECT 1 ///
+
+Multimi finite de numere intregi reprezentate ca liste inlantuite:
+- clasa multime sa contina metode de: transformare a unei liste inlantuite in multime, prin eliminarea duplicatelor din respectiva lista;
+- supraincarcare a operatorilor << si >>;
+- reuniune a doua multimi, implementata prin supraincarcarea operatorului +;
+- intersectie a doua multimi, implementata prin supraincarcarea operatorului *;
+- diferenta dintre doua multimi, implementata prin supraincarcarea operatorului -;
+- sa se creeze o clasa pereche de numere intregi si o clasa multime de perechi de numere intregi reprezentata ca lista inlantuita de obiecte de tip clasa pereche;
+- clasa multime de perechi sa fie prietena a clasei pereche de intregi; fiecare dintre clasele pereche si multime de perechi sa contina supraincarcari pentru << si >>;
+- sa se scrie o functie care efectueaza produsul cartezian a doua multimi de intregi, date ca instante ale clasei multime de intregi, si il memoreaza intr-o instanta a clasei multime de perechi de intregi;
+
+
+/// PROJECT 2 ///
+
+Cozi de caractere (implementate dinamic):
+
+Se dau urmatoarele clase:
+- Nod (char info, nod*next)
+- Coada (nod * prim, nod * ultim, int dim_max);
+- DEQUE:Coada - cu operatiile de adaugare și stergere modificate corespunzator. 
+- DEQUE_MARCAJ:Coada - cu operatiile de adaugare și stergere modificate corespunzator. 
+
+Clasele derivate trebuie sa contina cel puțin constructori parametrizati prin
+care sa se evidentieze transmiterea parametrilor catre constructorul din clasa
+de baza si destructor.
+
+
+/// PROJECT 3 ///
+
+Dintr-un parc auto se poate cumpăra o gama variata de automobile din urmatoarele clase: MINI (mașini de oraș de mic litraj, de obicei sub 4m lungime), MICA (mașini de oraș, cu spațiu interior mai mare decât MINI și lungime intre 3.85 și 4.1), COMPACTA (mașini ușor de folosit atât de oraș cât și la drum lung, de dimensiune 4.2 – 4.5m; modelele vin sub forma de hatchback, combi sau sedan) și MONOVOLUME (automobile sub forma de van ce pot transporta 5-7 persoane). Monovolumele pot și achizitionate atât noi cât și second hand. La cele achizitionate sh se percepe un discount proportional cu numărul de ani vechime și, în lunile de vara, beneficiaza de zile promotionale cu reducere fixa de 10% din preț.
+
+Cerinta suplimentara:
+- Să se adauge campurile și metodele necesare pentru implementarea corecta;
+- Să se  construiasca clasa template Vanzare care sa conțină nr total de mașini în stoc (decrementat automat la vanzarea unei masini), nr de mașini vândute (incrementat automat) și doi vectori de pointeri la obiecte de tip masina, alocati dinamic, prin care să se gestioneze automobilele din stoc și cele vandute. Sa se supraincarce operatorul -= care sa reactualizeze datele din clasa la vanzarea unei mașini, indiferent de tipul acesteia.
+- Sa se construiasca o specializare pentru tipul unsigned care sa
+conțină și sa afiseze gestioneze doar MONOVOLUMELE.
+
+Cerinte comune:
+
+- tratarea exceptiilor
+- utilizarea variabilelor și functiilor statice
+- utilizarea conceptelor de Dynamic_Cast și Static_Cast
+- utilizarea sabloanelor
+- citirea informațiilor complete a n obiecte, memorarea și afisarea acestora
+
+Cerinte generale aplicate:
+
+- să se identifice și să se implementeze ierarhia de clase;
+- clasele sa conțină constructori, destructori, =, funcție prietena de
+citire a datelor;
+- clasa de baza sa conțină funcție virtuala de afisare, rescrisa în
+clasele derivate; 
+- clasele derivate trebuie sa contina cel constructori parametrizati
+prin care sa se evidentieze transmiterea parametrilor către
+constructorul din clasa de baza. 
