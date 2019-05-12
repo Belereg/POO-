@@ -360,7 +360,6 @@ int main()
 	lista2.transformare();
 	cout << lista2;
 	Multime lista3 = lista1 * lista2;
-	//cout << lista3;
 
 	Multime_perechi Lista;
 	Pereche_intregi pereche;
