@@ -1,2 +1,2 @@
 # POO
-Object oriented programming projects
+Object oriented programming projects 🏫
